@@ -1,0 +1,9 @@
+<!--cuando el usuario deja de escribir
+  en el campo de entrada, se llamará a la función keyup-->
+<input
+  type="text"
+  class="form-control mt-4"
+  [value]="initialValue"
+  (keyup)="onKeyPress(txtInput.value)"
+  #txtInput
+>

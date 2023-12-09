@@ -1,0 +1,8 @@
+<h2>Busqueda por Región</h2>
+<search-box (onDebounce)="searchRegion($event) "[initialValue]="initialValue"></search-box>
+<hr>
+<div class="row">
+  <div class="col">
+    <pokemon-table [pokemons]="pokemons"></pokemon-table>
+  </div>
+</div>

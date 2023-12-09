@@ -1,0 +1,8 @@
+<h2>Busqueda por Nombre</h2>
+<search-box (onDebounce)="searchNombre($event) "[initialValue]="initialValue"></search-box>
+<hr>
+<div class="row">
+  <div class="col">
+    <pokemon-table [pokemons]="pokemons"></pokemon-table>
+  </div>
+</div>

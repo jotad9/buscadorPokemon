@@ -1,0 +1,9 @@
+<h2>Busqueda por Tipo</h2>
+<search-box (onDebounce)="searchTipo($event) "[initialValue]="initialValue"></search-box>
+<hr>
+<div class="row">
+  <div class="col">
+    <pokemon-table [pokemons]="pokemons"></pokemon-table>
+  </div>
+</div>
+
