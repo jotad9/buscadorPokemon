@@ -4,7 +4,6 @@ import { SearchBoxComponent } from '../../../shared/components/search-box/search
 import { PokemonTableComponent } from '../../components/pokemon-table/pokemon-table.component';
 import { Pokemon } from '../../interfaces/Pokemon';
 import { PokemonsService } from '../../services/pokemons.service';
-
 @Component({
   selector: 'app-tipo-page',
   standalone: true,
@@ -13,7 +12,7 @@ import { PokemonsService } from '../../services/pokemons.service';
   styles: ``
 })
 export class TipoPageComponent {
-  public pokemons: Pokemon[] = [];
+  public pokemons: Pokemon | never[] = [];
   public initialValue: string = '';
   //Donde quieras inyectar el servicio, lo tienes que declarar en el constructor
   constructor(private pokemonsService: PokemonsService) { }
@@ -23,7 +22,7 @@ export class TipoPageComponent {
   }
   searchTipo(term:string):void{
     this.pokemonsService.searchTipo(term).subscribe(pokemons => {
-      this.pokemons=pokemons;
+      this.pokemons=pokemons.results;
     });
   }
 }

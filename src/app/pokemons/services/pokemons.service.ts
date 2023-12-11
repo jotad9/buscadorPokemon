@@ -4,6 +4,7 @@ import { Observable, catchError, map, of, tap } from 'rxjs';
 import { CacheStore } from '../interfaces/CacheStore';
 import { Pokemon } from '../interfaces/Pokemon';
 
+
 @Injectable({providedIn: 'root'})
 export class PokemonsService {
 
@@ -31,12 +32,12 @@ export class PokemonsService {
     this.cacheStore = JSON.parse( localStorage.getItem('cacheStore')! );
   }
   //obtener los pokemons
-  private getPokemonsRequest(url: string):Observable<Pokemon[]>{
-    return this.httpClient.get<Pokemon[]>(url).pipe(
+  private getPokemonsRequest(url: string):Observable<Pokemon | never[]>{
+    return this.httpClient.get<Pokemon | never[]>(url).pipe(
       catchError( () =>of([]))
     );
   }
-  //obtener todos los pokemons
+
   searchPokemonByAlphaCode(code: string):Observable<Pokemon | null>{
     const url=`${this.apiUrl}/alpha/${code}`;
 
@@ -46,7 +47,7 @@ export class PokemonsService {
                         catchError( () =>of(null) )
                       );
   }
-  searchTipo(term: string):Observable<Pokemon[]>{
+  searchTipo(term: string):Observable<Pokemon | never[]>{
     //Esto no es una soliciutd http, es un observable
     //falta un subscribe
     const url=`${this.apiUrl}/type/${term}`;
@@ -59,7 +60,7 @@ export class PokemonsService {
         );
   }
 
-  searchRegion(term: string):Observable<Pokemon[]>{
+  searchRegion(term: string):Observable<Pokemon | never[]>{
     const url=`${this.apiUrl}/region/${term}`;
 
     return this.getPokemonsRequest(url)
@@ -69,7 +70,7 @@ export class PokemonsService {
       );
   }
 
-  searchNombre(term: string):Observable<Pokemon[]>{
+  searchNombre(term: string):Observable<Pokemon | never[]>{
     const url=`${this.apiUrl}/pokemon/${term}`;
 
     return this.getPokemonsRequest(url)

@@ -1,6 +1,8 @@
+
 @if(pokemons.length===0){
   <div class="alert alert-warning text-center">
     No hay paises para mostrar
+
   </div>
 }@else {
   <table class="table table-hover">
@@ -16,15 +18,15 @@
       </tr>
     </thead>
     <tbody>
-      @for(pokemon of pokemons; track pokemon.id; let i=$index){
+      @for(pokemon of pokemons; track pokemon.results; let i=$index){
         <tr>
           <td>{{ i+1 }}</td>
-          <td><img [src]="pokemon.sprites.back_default" [alt]="pokemon.name" [width]="50" ></td>
-          <td>{{ pokemon.name }}</td>
+          <!--<td><img [src]="pokemon.sprites.back_default" [alt]="pokemon.name" [width]="50" ></td>
+          <td>{{ pokemon.results[pokemons.name] }}</td>
           <td>{{ pokemon.types }}</td>
-          <td>{{ pokemon.height| number}}</td>
+          <td>{{ pokemon.height | number}}</td>
           <td>{{ pokemon.location_area_encounters }}</td>
-          <td><a [routerLink]="['/pokemons/by', pokemon.id]">Ver más</a></td>
+          <td><a [routerLink]="['/pokemons/by', pokemon.id]">Ver más</a></td>-->
         </tr>
       }
     </tbody>
