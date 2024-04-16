@@ -1,7 +1,7 @@
 import { CommonModule } from '@angular/common';
 import { Component, Input } from '@angular/core';
 import { RouterLink } from '@angular/router';
-import { Pokemon } from '../../interfaces/Pokemon';
+import { Result } from '../../interfaces/Pokemon';
 @Component({
   selector: 'pokemon-table',
   standalone: true,
@@ -11,5 +11,5 @@ import { Pokemon } from '../../interfaces/Pokemon';
 })
 export class PokemonTableComponent {
 
-  @Input () public pokemons: Pokemon[] = [];
+  @Input () public pokemons!: Result[] | [];;
 }

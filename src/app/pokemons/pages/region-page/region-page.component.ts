@@ -2,7 +2,7 @@ import { CommonModule } from '@angular/common';
 import { Component, OnInit } from '@angular/core';
 import { SearchBoxComponent } from '../../../shared/components/search-box/search-box.component';
 import { PokemonTableComponent } from '../../components/pokemon-table/pokemon-table.component';
-import { Pokemon } from '../../interfaces/Pokemon';
+import { Result } from '../../interfaces/Pokemon';
 import { PokemonsService } from '../../services/pokemons.service';
 @Component({
   selector: 'region-page',
@@ -12,7 +12,7 @@ import { PokemonsService } from '../../services/pokemons.service';
   styles: ``
 })
 export class RegionPageComponent implements OnInit{
-  public pokemons: Pokemon[] = [];
+  public pokemons!: Result[] | [];
   public initialValue: string = '';
   //Donde quieras inyectar el servicio, lo tienes que declarar en el constructor
   constructor(private pokemonsService: PokemonsService) { }
